@@ -12,55 +12,25 @@ public class A1Novice {
 		// Number of people in list
 		int count = scan.nextInt();
 		
-		Shopper[] listOfShoppers = new Shopper[count];
-		
+		String[] first = new String[count];
+		String[] last = new String[count];
+		int[] numOfItems = new int[count];
+		double[] priceOfItems = new double[count];
+		double[] totPrices = new double[count];
 		for (int i = 0; i < count; i++) {
-			listOfShoppers[i].first = scan.next();
-			listOfShoppers[i].last = scan.next();
-			listOfShoppers[i].numOfItems = scan.nextInt();
-			listOfShoppers[i].listOfItems = new Items[listOfShoppers[i].numOfItems];
-			for (int j = 0; j < listOfShoppers[i].numOfItems; j++) {
-				listOfShoppers[i].listOfItems[j].quant = scan.nextInt();
-				listOfShoppers[i].listOfItems[j].nameOfItem = scan.next();
-				listOfShoppers[i].listOfItems[j].price = scan.nextDouble();
+			first[i] = scan.next();
+			last[i] = scan.next();
+			numOfItems[i] = scan.nextInt();
+			for (int j = 0; j < numOfItems[i]; j++) {
+				int numPerItem = scan.nextInt();
+				String name = scan.next();
+				double price = scan.nextDouble() * numPerItem;
+				totPrices[i] = totPrices[i] + price;
 			}
 		}
-		double[] pricePerPerson = new double[count];
-		
+		scan.close();
 		for (int i = 0; i < count; i++) {
-			for (int j = 0; j < listOfShoppers[i].numOfItems; j++) {
-				double tot = 0;
-				double totPerItem =  listOfShoppers[i].listOfItems[j].quant * listOfShoppers[i].listOfItems[j].price;
-				pricePerPerson[i] = pricePerPerson[i] + totPerItem;
-			}
+			System.out.println(first[i].charAt(0) + " " + last[i] + ": " + totPrices[i]);
 		}
-		
-		double[] averagePerPerson = new double[count];
-		for (int i = 0; i < count; i++) {
-			averagePerPerson[i] = pricePerPerson[i] / listOfShoppers[i].numOfItems;
-		}
-		
-		for (int i = 0; i < count; i++) {
-			System.out.println(listOfShoppers[i].first.charAt(0) + ". " + listOfShoppers[i].last + " " + averagePerPerson[i]);
-		}
-		
-	}
-	
-	/* This creates a class for each shopper.
-	 * It includes their first initial and last name, number of items, and a string of items.
-	 */
-	public class Shopper {
-		String first;
-		String last;
-		int numOfItems;
-		Items[] listOfItems;
-	}
-	/* This creates a class for each item.
-	 * It includes the quantity, name, and price of each item.
-	 */
-	public class Items {
-		int quant;
-		String nameOfItem;
-		double price;
 	}
 }
