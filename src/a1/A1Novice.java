@@ -15,7 +15,7 @@ public class A1Novice {
 		Shopper[] listOfShoppers = new Shopper[count];
 		
 		for (int i = 0; i < count; i++) {
-			listOfShoppers[i].first = scan.next().charAt(0);
+			listOfShoppers[i].first = scan.next();
 			listOfShoppers[i].last = scan.next();
 			listOfShoppers[i].numOfItems = scan.nextInt();
 			listOfShoppers[i].listOfItems = new Items[listOfShoppers[i].numOfItems];
@@ -41,7 +41,7 @@ public class A1Novice {
 		}
 		
 		for (int i = 0; i < count; i++) {
-			System.out.println(listOfShoppers[i].first + ". " + listOfShoppers[i].last + " " + averagePerPerson[i]);
+			System.out.println(listOfShoppers[i].first.charAt(0) + ". " + listOfShoppers[i].last + " " + averagePerPerson[i]);
 		}
 		
 	}
@@ -50,7 +50,7 @@ public class A1Novice {
 	 * It includes their first initial and last name, number of items, and a string of items.
 	 */
 	public class Shopper {
-		char first;
+		String first;
 		String last;
 		int numOfItems;
 		Items[] listOfItems;
