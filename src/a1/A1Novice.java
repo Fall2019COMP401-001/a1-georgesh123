@@ -30,7 +30,7 @@ public class A1Novice {
 		}
 		scan.close();
 		for (int i = 0; i < count; i++) {
-			System.out.println(first[i].charAt(0) + " " + last[i] + ": " + totPrices[i]);
+			System.out.println(first[i].charAt(0) + ". " + last[i] + ": " + totPrices[i]);
 		}
 	}
 }
