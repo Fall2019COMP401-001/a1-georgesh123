@@ -29,8 +29,12 @@ public class A1Novice {
 			}
 		}
 		scan.close();
+		String[] totPricesString = new String[count];
 		for (int i = 0; i < count; i++) {
-			System.out.println(first[i].charAt(0) + ". " + last[i] + ": " + totPrices[i]);
+			totPricesString[i] = String.format("%.2f", totPrices[i]);
+		}
+		for (int i = 0; i < count; i++) {
+			System.out.println(first[i].charAt(0) + ". " + last[i] + ": " + totPricesString[i]);
 		}
 	}
 }
